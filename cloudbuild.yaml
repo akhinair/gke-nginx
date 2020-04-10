@@ -14,7 +14,7 @@ steps:
   - '--location=$_LOCATION'
   - '--project=$PROJECT_ID'
   - '--filename=$_K8S_YAML_PATH'
-  - 'IMAGE_NAME=gcr.io/$PROJECT_ID/gke-nginx:${_TAG}"
+  - 'IMAGE_NAME=gcr.io/$PROJECT_ID/gke-nginx:${_TAG}'
 substitutions:
   _CLUSTER: fancy-cluster
   _LOCATION: us-central1-f
