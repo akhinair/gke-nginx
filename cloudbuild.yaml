@@ -1,5 +1,20 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/gke-nginx', '.' ]
-images:
-- 'gcr.io/$PROJECT_ID/gke-nginx'
+  # build the container image
+- name: "gcr.io/cloud-builders/docker"
+  args: ["build", "-t", "gcr.io/$PROJECT_ID/gke-nginx:1", "."]
+  # push container image
+- name: "gcr.io/cloud-builders/docker"
+  args: ["push", "gcr.io/$PROJECT_ID/gke-nginx:1"]
+  # deploy container image to GKE
+- name: "gcr.io/cloud-builders/gke-deploy"
+  args:
+  - 'apply'
+  - '--namespace=$_NAMESPACE'
+  - '--cluster=$_CLUSTER'
+  - '--location=$_LOCATION'
+  - '--project=$PROJECT_ID'
+substitutions:
+  _CLUSTER: cloudbuild-cluster
+  _LOCATION: us-west1
+  _NAMESPACE: default
+  _PROJECT_ID: manh-tsg-sandbox 
