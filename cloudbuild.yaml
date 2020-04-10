@@ -15,6 +15,6 @@ steps:
   - '--project=$PROJECT_ID'
 substitutions:
   _CLUSTER: cloudbuild-cluster
-  _LOCATION: us-west1
+  _LOCATION: us-central1-f
   _NAMESPACE: default
-  _PROJECT_ID: manh-tsg-sandbox 
+  _PROJECT_ID: qwiklabs-gcp-04-28d5c19008ad
