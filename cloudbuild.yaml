@@ -8,13 +8,13 @@ steps:
   # deploy container image to GKE
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
-  - 'apply'
+  - 'run'
   - '--namespace=$_NAMESPACE'
   - '--cluster=$_CLUSTER'
   - '--location=$_LOCATION'
   - '--project=$PROJECT_ID'
   - '--filename=$_K8S_YAML_PATH'
-  - 'IMAGE_NAME=$_IMAGE_NAME'
+  - 'IMAGE_NAME=gcr.io/$PROJECT_ID/gke-nginx:${_TAG}"
 substitutions:
   _CLUSTER: fancy-cluster
   _LOCATION: us-central1-f
@@ -22,4 +22,3 @@ substitutions:
   _PROJECT_ID: cloudbuild-gke
   _TAG: latest 
   _K8S_YAML_PATH: kubeconfig.yaml
-  _IMAGE_NAME: gcr.io/$PROJECT_ID/gke-nginx:${_TAG}
