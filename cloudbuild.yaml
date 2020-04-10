@@ -14,7 +14,6 @@ steps:
   - '--location=$_LOCATION'
   - '--project=$PROJECT_ID'
   - '--filename=$_K8S_YAML_PATH'
-  - '-- tag=$_TAG'
   - 'IMAGE_NAME=$_IMAGE_NAME'
 substitutions:
   _CLUSTER: fancy-cluster
