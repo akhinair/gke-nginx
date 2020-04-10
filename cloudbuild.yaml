@@ -15,14 +15,12 @@ steps:
   - '--project=$PROJECT_ID'
   - '--filename=$_K8S_YAML_PATH'
   - '--app-name=$_APP_NAME'
-  - '--container-port=$CONTAINER_PORT'
   - '-- tag=$_TAG'
 substitutions:
   _CLUSTER: fancy-cluster
   _LOCATION: us-central1-f
   _NAMESPACE: default
   _PROJECT_ID: cloudbuild-gke
-  _TAG: 1.0
+  _TAG: latest 
   _K8S_YAML_PATH: kubeconfig.yaml
   _APP_NAME: nginx
-  _CONTAINER_PORT: 80
