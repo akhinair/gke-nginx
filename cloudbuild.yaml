@@ -14,8 +14,8 @@ steps:
   - '--location=$_LOCATION'
   - '--project=$PROJECT_ID'
   - '--filename=$_K8S_YAML_PATH'
-  - '--app-name=$_APP_NAME'
   - '-- tag=$_TAG'
+  - 'IMAGE_NAME=$_IMAGE_NAME'
 substitutions:
   _CLUSTER: fancy-cluster
   _LOCATION: us-central1-f
@@ -23,4 +23,4 @@ substitutions:
   _PROJECT_ID: cloudbuild-gke
   _TAG: latest 
   _K8S_YAML_PATH: kubeconfig.yaml
-  _APP_NAME: nginx
+  _IMAGE_NAME: gcr.io/$PROJECT_ID/$APP_NAME:${_TAG}
