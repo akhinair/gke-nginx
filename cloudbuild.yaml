@@ -20,5 +20,5 @@ substitutions:
   _LOCATION: us-central1-f
   _NAMESPACE: default
   _PROJECT_ID: cloudbuild-gke
-  _TAG: latest 
+  _TAG: v2.0
   _K8S_YAML_PATH: kubeconfig.yaml
